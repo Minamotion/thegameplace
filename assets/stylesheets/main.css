@@ -91,12 +91,16 @@ html {
     cursor: url('/assets/images/cursor/default.png'), default;
 }
 
-*:-moz-loading {
-    cursor: url('/assets/images/cursor/patience.png'), wait;
-}
-
 img {
     image-rendering: pixelated;
+}
+
+h1 {
+    font-family: "TPixel"
+}
+
+p {
+    font-family: "Kidraw"
 }
 
 .wrap {
@@ -157,5 +161,15 @@ img {
 @font-face {
     src: url("/assets/fonts/font-bitcattoleman.ttf");
     font-family: "Bitcattoleman"
+}
+
+@font-face {
+    src: url("/assets/fonts/font-kidraw.ttf");
+    font-family: "Kidraw"
+}
+
+@font-face {
+    src: url("/assets/fonts/font-tpixel.ttf");
+    font-family: "TPixel"
 }
 /* Cursors explained in "https://developer.mozilla.org/en-US/docs/Web/CSS/cursor" */
