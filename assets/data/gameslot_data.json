@@ -1,0 +1,10 @@
+[
+    {
+        "title": "TEST",
+        "gameslotid": 100,
+        "embedRes": "about:blank",
+        "coderID": 1,
+        "invisible": false,
+        "desc": "This is a game description, only shown in game.html"
+    }
+]

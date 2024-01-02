@@ -1,0 +1,115 @@
+<html>
+    <head>
+        <title>TheGamePlace - ...</title>
+        <link rel='icon' type='image/png' href='/assets/images/favicon.png'>
+        <link rel="stylesheet" href='/assets/stylesheets/games.css'>
+        <link rel="stylesheet" href='/assets/stylesheets/main.css'>
+        <link rel="stylesheet" href='/assets/stylesheets/dialog.css'>
+        <link rel="stylesheet" href='/assets/stylesheets/none.css' id="holiday-custom_stylesheet">
+        <style id="darkmode"></style>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <meta name="description" content="Welcome to THEGAMEPLACE! Post your embed games here or play OTHER'S games!">
+        <meta name="keywords" content="TheGamePlace">
+        <meta name="author" content="MultiLayer">
+        <meta name="application-name" content="TheGamePlace">
+    </head>
+    <body lazy-loaded='true' id="body">
+        <div class="orientationLandscape center-child">
+            <h1 class="orientationLandscape">Sorry for interruption but please consider:</h1>
+            <p class="orientationLandscape">Switching to landscape mode</p>
+        </div>
+        <page id='main'>
+            <div class='wrap header'>
+                <img type='image/png' onerror="this.src='/assets/images/errimg.png';" src='/assets/images/favicon.png' width='80' height='80' style='margin: 12;margin-left: 24;' id="siteFavicon">
+                <img type='image/png' onerror="this.src='/assets/images/errimg.png';" src='/assets/images/headerTitleArt.png' width='250' height='80' style='margin: 12; margin-left: 24;' id='headerTitleArt'>
+                <div class="hfButtons">
+                    <button onclick="location.assign('https:\/\/forms.gle/zTyqSDfvW2dK5oxN6')" >Your Games</button>
+                    <button onclick="location.assign('./rules.html?dark')" >Rules</button>
+                    <button onclick="location.assign('https:\/\/forms.gle/gSrcidNP4p8g6cu3A')" >Report game</button>
+                    <button onclick="location.assign('https:\/\/forms.gle/2ZgEUiZzphKaaZai8')" >Create user</button>
+                    <button onclick="location.assign('https:\/\/forms.gle/CzrMdF6jHihVKc4P8')" >Edit user</button>
+                </div>
+            </div>
+            <div id="contents">
+                <dialog id="err1">
+                    <div class="dialogTitle wrap" style="align-content: center;">
+                        <h1 style="transform: translate(0px, 20px); margin: auto;">ERROR</h1>
+                    </div>
+                    <div class="wrap" style="justify-content: center;">
+                        <p>CANNOT FIND SPECIFIC</p>
+                    </div>
+                    <br>
+                    <button onclick="document.getElementById('err1').close()">OK</button>
+                </dialog>
+        
+                <dialog id="errUserSpecific1">
+                    <div class="dialogTitle wrap" style="align-content: center;">
+                        <h1 style="transform: translate(0px, 20px); margin: auto;">ERROR</h1>
+                    </div>
+                    <div class="wrap" style="justify-content: center;">
+                        <p>ACCOUNT NOT REGISTERED</p>
+                    </div>
+                    <br>
+                    <button onclick="location.assign('./index.html')">OK</button>
+                </dialog>
+        
+                <dialog id="errUserSpecific2">
+                    <div class="dialogTitle wrap" style="align-content: center;">
+                        <h1 style="transform: translate(0px, 20px); margin: auto;">ERROR</h1>
+                    </div>
+                    <div class="wrap" style="justify-content: center;">
+                        <p>ACCOUNT DISABLED</p>
+                    </div>
+                    <br>
+                    <button onclick="location.assign('./index.html')">OK</button>
+                </dialog>
+
+                <div class="center-child userHeader">
+                    <p>You're visiting the page of:</p>
+                    <div class="center-child">
+                        <div>
+                            <img onerror="this.src='/assets/images/users/default.png'" src="/assets/images/users/default.png" width="80" height="80" id="usericoReg" class="userPfp">
+                            <a href="" id="useremailReg"><h1 id="usernameReg">%Name%</h1></a>
+                        </div>
+                    </div>
+                    <p id="userdescReg" style="margin: 10;">I don't have a description</p>
+                    <div class="wrap" style="justify-content: center;">
+                        <p id="userroleReg" style="margin: 10;">%Role%</p>
+                        <p style="margin: 10; margin-left: 15; margin-right: 15;">|</p>
+                        <p id="useridReg" style="margin: 10;">%Identity%</p>
+                    </div>
+                </div>
+                <div style='margin: 24;justify-content: center; margin-bottom: 0;' class='wrap' id='searchgameslot'>
+                    <input id='searchgameslot-input' type='search' style='height: 40; transform: translate(0px, 17px);' placeholder='Enter a gameslot id'>
+                    <button disabled id='scrolltogamebutton'>Scroll to game</button>
+                </div>
+                <script src='/assets/scripts/search.js' async></script>
+                <script src="/assets/scripts/close.js" async></script>
+                <div style='margin: auto;'>
+                    <div class='gamescroller'>
+                        <div class='wrap' style='justify-content: center; margin: auto; margin-top: 24;' id='nojavascript'>
+                            <style>
+                                #nojavascript {
+                                    display: none;
+                                }
+                            </style>
+                            <h1 style='margin: 24;margin-bottom: 0;word-wrap: break-word;width: 1000;text-align: left;'>This site does not work well without Javascript, please enable it or I will come for your lungs UwU~ <br>
+                                <div style='transform: translate(340px, 0px); width: 640;'>- Sincerely, TheGamePlace</div>
+                            </h1>
+                        </div>
+                        <div class='wrap' style='justify-content: center;' id='gameslotstore'>
+                            <script src="/assets/scripts/gameslot_related/userGames.js" async></script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='wrap footer'>
+                <p style="margin: 0"><a href="https://www.youtube.com/@official_multilayer" title="The website I post videos on">YouTube</a> | <a href="https://scratch.mit.edu/users/MultiLayerScratch" title="The website I post most of my games on">Scratch</a> | <a href="https://github.com/Minamotion" title="The website I post websites on (Like this one!)">Github</a></p>
+            </div>
+        </page>
+        <script src="/assets/scripts/holidays.js" async></script>
+        <script src="/assets/scripts/visitUser.js" async></script>
+        <script src="/assets/scripts/definedarkmode.js" async></script>
+    </body>
+</html>

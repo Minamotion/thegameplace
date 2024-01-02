@@ -1,0 +1,56 @@
+/* Color palette */
+.header {
+    background: #00d5ff;
+}
+
+.footer {
+    background: #00d5ff;
+}
+
+#body {
+    color: black;
+    background: #ffffff;
+}
+
+dialog::backdrop {
+    background-color: #00ffff50;
+}
+
+dialog {
+    color: #ffffff;
+    background-color: #000000;
+    border-color: #00d5ff;
+}
+
+input[type=search] {
+    background: #ff0000;
+    color: #ffffff;
+}
+
+input::placeholder {
+    color: #ffffff7e
+}
+
+.dialogTitle {
+    border-color: #00d5ff;
+}
+
+.gamescroller {
+    border-color: #ff0000;
+}
+
+.gameslot {
+    background-color: #ffffff;
+    color: #ff0000;
+    border-color: #00eaff;
+}
+
+.gamescreen {
+    border-color: #00ffdd;
+}
+
+.invisible {
+    background-color: #000000;
+    border-color: #ff0000;
+    color: #ff0000;
+}

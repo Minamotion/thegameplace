@@ -1,0 +1,2 @@
+async function DarkMode(){if(new URLSearchParams(window.location.search).has('dark')){document.getElementById('darkmode').innerHTML = await fetch("/assets/stylesheets/modes/dark.css").then(e=>e.text()); console.info("You're currently using dark mode")} else {console.warn("Use dark mode, Just add the parameter 'dark' to the url")}}
+DarkMode()

@@ -1,0 +1,17 @@
+/* Color palette for dark mode */
+.header {
+    background: #414141;
+}
+
+.footer {
+    background: #414141;
+}
+
+#body {
+    color: #ffffff;
+    background: #000000;
+}
+
+dialog::backdrop {
+    background-color: #00000050;
+}

@@ -1,0 +1,161 @@
+/* Styles */
+@media (orientation: portrait) {
+  *:not(.orientationLandscape, body, html) {
+    display: none;
+  }
+}
+
+@media (orientation: landscape) {
+  *.orientationLandscape {
+    display: none;
+  }
+}
+
+.header {
+    height: 110px;
+    background: #366e55;
+    padding: 10px;
+    width: -webkit-fill-available;
+    overflow: auto;
+}
+
+iframe {
+    border: none;
+}
+
+#contents {
+    height: -webkit-fill-available;
+    overflow: auto;
+}
+
+page {
+    display: grid;
+    height: 100%;
+    width: 100%;
+    grid-template-rows:
+        130px /* Header */
+        auto  /* Contents */
+        130px /* Footer */;
+}
+
+.footer {
+    height: 110px;
+    background: #366e55;
+    padding: 10px;
+    width: -webkit-fill-available;
+    overflow: auto;
+}
+
+*:any-link {
+    color: darkblue;
+    text-decoration: none;
+    animation-name: hyperlinkNohover;
+    animation-duration: 0.5s;
+}
+
+*:any-link:hover {
+    color: blue;
+    text-decoration: none;
+    animation-name: hyperlinkHover;
+    animation-duration: 0.5s;
+    cursor: url('/assets/images/cursor/hand.png'), pointer;
+}
+
+.hfButtons {
+    height: 100%;
+    width: 50%;
+    overflow: auto;
+    display: table-row-group;
+}
+
+.hfButtons>button {
+    margin: 24;
+}
+
+.userHeader {
+    margin: 30;
+    text-align: center;
+    background-color: #000000;
+    color: white;
+}
+
+#body {
+    font-family: "Bitcattoleman";
+    color: white;
+    background: #66cc9e;
+    overflow: auto;
+    margin: 0;
+}
+
+html {
+    cursor: url('/assets/images/cursor/default.png'), default;
+}
+
+*:-moz-loading {
+    cursor: url('/assets/images/cursor/patience.png'), wait;
+}
+
+img {
+    image-rendering: pixelated;
+}
+
+.wrap {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.userPfp {
+    background: #7a7a7a;
+    border-radius: 50px;
+    border-style: solid;
+    border-color: black;
+    animation-name: userPfpNohover;
+    animation-duration: 0.5s;
+}
+
+.userPfp:hover {
+    border-color: blue;
+    animation-name: userPfpHover;
+    animation-duration: 0.5s;
+}
+
+.center-child {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+
+*:disabled {
+    cursor: url('/assets/images/cursor/no.png'), not-allowed;
+}
+
+/* Animations */
+@keyframes userPfpHover {
+    from {border-color: black;}
+    to {border-color: blue;}
+}
+
+@keyframes userPfpNohover {
+    from {border-color: blue;}
+    to {border-color: black;}
+}
+
+@keyframes hyperlinkHover {
+    from {color: darkblue;}
+    to {color: blue;}
+}
+
+@keyframes hyperlinkNohover {
+    from {color: blue;}
+    to {color: darkblue;}
+}
+
+
+/* Fonts */
+@font-face {
+    src: url("/assets/fonts/font-bitcattoleman.ttf");
+    font-family: "Bitcattoleman"
+}
+/* Cursors explained in "https://developer.mozilla.org/en-US/docs/Web/CSS/cursor" */
