@@ -39,7 +39,7 @@ async function loadGameslots(json) {
             curUser = getUser(userjson, json[x].coderID)
             // Proceed with setting up the game.
             document.getElementById('gametitle').innerHTML = json[x].title
-            document.getElementById('gamedetails').innerHTML = json[x].gameslotid+" | made by <a href='./userpage.html?coder="+json[x].gameslotid+"'>"+curUser.nickname+"</a>"
+            document.getElementById('gamedetails').innerHTML = json[x].gameslotid+" | made by <a href='./userpage.html?coder="+curUser.id+"'>"+curUser.nickname+"</a>"
             document.getElementById('game').setAttribute('src', json[x].embedRes)
             document.getElementById('gamegiveopinion').setAttribute('onclick', "location.assign('mailto:"+curUser.email+"?subject=My opinion about your game \""+json[x].title+"\"&body=The gameslotid is "+json[x].gameslotid+"%0A%0A- Sent via TheGamePlace\"")
             if(json[x].desc !== null || json[x].desc !== ""){
