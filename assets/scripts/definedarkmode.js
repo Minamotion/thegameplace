@@ -9,6 +9,11 @@ if (this.location.protocol !== 'https:') {
 }
 
 async function DarkMode() {
+    if (localStorage.getItem('darkmode') != "true" && localStorage.getItem('darkmode') != "false"){
+        // There was no darkmode data saved
+        localStorage.setItem('darkmode', 'false')
+        console.log('Darkmode reset was a success')
+    }
     if (new URLSearchParams(window.location.search).has('light') && !(new URLSearchParams(window.location.search).has('dark'))) {
         // We have to return to light mode
         localStorage.setItem('darkmode', 'false'); // Set darkmode to false

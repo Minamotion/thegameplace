@@ -27,22 +27,23 @@
             </div>
             <div id="contents">
                 <script src="/assets/scripts/close.js" async></script>
+                <noscript class="center-child">
+                    <style>#gameslotview { display: none; }</style>
+                    <h1>You need Javascript in order to load the desired game, so please, <h1 style="color: red;">ENABLE IT!</h1></h1>
+                </noscript>
                 <div id="gameslotview" style="width: -webkit-fill-available;margin: 24; display: flex;" class="center-child">
-                    <noscript class="center-child">
-                        <h1>You need Javascript in order to load the desired game, so please, <h1 style="color: red;">ENABLE IT!</h1></h1>
-                    </noscript>
                     <script src="/assets/scripts/gameslot_related/specificGame.js" async></script>
                     <div class="gamescreen" id="gamescreen" style="width: 450; height: 300;">
                         <iframe src="" width="450" height="300" id="game"></iframe>
                     </div>
-                    <div>
-                        <div>
+                    <div class="center-child">
+                        <div class="center-child">
                             <h1 style="margin-bottom: 0;" id="gametitle">%GameTitle%</h1>
                             <p style="margin-top: 0;word-wrap: break-word;" id="gamedetails">%GameDetails%</p>
-                            <p style="margin-top: 0;word-wrap: break-word;height: 100;padding: 12;color: white;width: 200;font-family: 'Bitcattoleman';" class="gamescreen" id="gamedesc">This has no description</p>
+                            <p style="margin-top: 0;word-wrap: break-word;height: 100;padding: 12;color: white;width: 200;font-family: 'Bitcattoleman';overflow: auto;" class="gamescreen" id="gamedesc">This has no description</p>
                         </div>
-                        <div>
-                            <button onclick="" id="gamegiveopinion">Give opinion</button>
+                        <div class="center-child">
+                            <button onclick="console.log('Wow, you actually like pressing buttons.')" id="gamegiveopinion">Give opinion</button>
                         </div>
                     </div>
                 </div>
