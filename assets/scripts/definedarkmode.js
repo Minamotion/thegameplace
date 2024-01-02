@@ -1,3 +1,5 @@
+// Thanks "https://stackoverflow.com/questions/14266730/js-how-to-cache-a-variable" for making this possible
+
 async function DarkMode() {
     if (new URLSearchParams(window.location.search).has('light') && !(new URLSearchParams(window.location.search).has('dark'))) {
         localStorage.setItem('darkmode', 'false');
