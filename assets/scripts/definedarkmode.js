@@ -3,9 +3,9 @@ if (this.location.protocol !== 'https:') {
     // I want users to have a secure connection so I made this script
     localStorage.clear() // Clear info saved in the http protocol
     setTimeout(() => {
-        this.location.assign('https://thegameplace.minamotion.org/'+this.location.pathname)
-        // After .1 seconds go to the safe location
-    }, 100);
+        this.location.assign('https://thegameplace.minamotion.org'+this.location.pathname)
+        // After .05 seconds go to the safe location
+    }, 50);
 }
 
 async function DarkMode() {
