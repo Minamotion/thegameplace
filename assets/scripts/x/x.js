@@ -54,8 +54,8 @@ class userPref {
     set(setting, value){
         switch (setting) {
             case 'darkmode':
-                if(value == true || value == false || value == 'true' || value == 'false'){
-                    localStorage.setItem('darkmode', toString(value))
+                if(value == 'true' || value == 'false'){
+                    localStorage.setItem('darkmode', value)
                     this.darkmode = value
                 } else {
                     console.error('Error at "x.js": Variable "'+setting+'" cannot be set to "'+value+'" because it is not a boolean')
@@ -80,7 +80,7 @@ if (top.location.pathname == "/editpref.html"){
 
     document.getElementById('modeswitchbutton').addEventListener('click', function(){
         // When this button was clicked then
-        settings.set('darkmode', (localStorage.getItem('darkmode') == 'false')?true:false)
+        settings.set('darkmode', (localStorage.getItem('darkmode') == 'false')?'true':'false')
         document.getElementById('modespan').innerHTML = !(localStorage.getItem('darkmode'))?'Light mode':'Dark mode'
     })
 
