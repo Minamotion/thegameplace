@@ -75,13 +75,13 @@ if (top.location.pathname == "/editpref.html"){
     // We are in settings
     window.addEventListener('load', function(){
         // Pre-load things
-        document.getElementById('modespan').innerHTML = !(settings.darkmode)?'Light mode':'Dark mode'
+        document.getElementById('modespan').innerHTML = !(localStorage.getItem('darkmode'))?'Light mode':'Dark mode'
     })
 
     document.getElementById('modeswitchbutton').addEventListener('click', function(){
         // When this button was clicked then
-        settings.set('darkmode', (settings.darkmode == 'false')?true:false)
-        document.getElementById('modespan').innerHTML = !(settings.darkmode)?'Light mode':'Dark mode'
+        settings.set('darkmode', (localStorage.getItem('darkmode') == 'false')?true:false)
+        document.getElementById('modespan').innerHTML = !(localStorage.getItem('darkmode'))?'Light mode':'Dark mode'
     })
 
     document.getElementById('clearbutton').addEventListener('dblclick', function(){
