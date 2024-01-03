@@ -6,6 +6,31 @@
         <link rel="stylesheet" href='/assets/stylesheets/dialog.css'>
         <link rel="stylesheet" href='/assets/stylesheets/none.css' id="holiday-custom_stylesheet">
         <style id="darkmode"></style>
+        <style>
+            .settinglist{
+                background: #2a8869;
+                border: #0d4734 solid 10px;
+                color: #000000;
+                width: 500;
+                margin: 24;
+                padding: 10;
+            }
+            .setting{
+                width:400;
+                margin:12;
+                background-color: #0d4734;
+                border: #102921 dashed 10px;
+                color: #ffffff;
+            }
+            .settinglist.danger{
+                background: #882a2a;
+                border-color: #470d0d;
+            }
+            .settinglist.danger>.setting{
+                background-color: #611f1f;
+                border-color: #291010;
+            }
+        </style>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="UTF-8">
         <meta name="description" content="Welcome to THEGAMEPLACE! Post your embed games here or play OTHER'S games!">
@@ -27,38 +52,33 @@
             <div id="contents">
                 <noscript class="center-child">
                     <style>#settings{display:none}</style>
-                    <h1>noscript text or easter egg</h1>
+                    <div class="center-child">
+                        <h1 style="margin:24">SETTINGS</h1>
+                        <div id="visualSettings" class="settinglist center-child">
+                            <h2>Error</h2>
+                            <div class="setting center-child">
+                                <span>No settings could load because you have Javascript disabled, please enable that <span style="filter:blur(.03in)">ship</span> now.</span>
+                            </div>
+                        </div>
+                    </div>
                 </noscript>
                 <div id="settings" class="center-child">
                     <h1 style="margin:24">SETTINGS</h1>
-                    <style>
-                        .settinglist{
-                            background: #ffffffc5;
-                            color: #000000;
-                            width: 500;
-                            margin: 24;
-                            padding: 10;
-                        }
-                        .setting{
-                            width:400;
-                            margin:12;
-                            border: white solid 10px;
-                        }
-                    </style>
-                    <div id="visualSettings" class="settinglist">
+                    <div id="visualSettings" class="settinglist center-child">
                         <h2>Visual</h2>
                         <div class="setting center-child">
-                            <button id="modeswitchbutton"><span id="modespan">%mode%</span></button>
+                            <button id="modeswitchbutton"><span id="modespan">Light mode</span></button>
                         </div>
                     </div>
-                    <div id="danger" class="settinglist">
+                    <div id="danger" class="settinglist center-child danger">
                         <h2>Danger zone</h2>
-                        <div class="setting center-child">
-                            <span>To clear all, doubleclick the button below, this cannot be undone so think before acting</span>
-                            <button id="clearbutton">Clear all</button>
+                        <div class="setting center-child danger">
+                            <div class="wrap">
+                                <button id="clearbutton" title="To clear all, doubleclick the button below, this cannot be undone so think before acting">Clear all</button>
+                            </div>
                         </div>
                     </div>
-                    <div class="settinglist">
+                    <div class="settinglist center-child">
                         <h2>More coming soon</h2>
                         <div class="setting center-child"></div>
                     </div>
@@ -72,7 +92,7 @@
             </div>
         </page>
         <script src="/assets/scripts/holidays.js" async></script>
-        <script src="/assets/scripts/definedarkmode.js" async></script>
+        <script src="/assets/scripts/x/x.js" async></script>
         <script src="/assets/scripts/editpref.js" async></script>
     </body>
 </html>
