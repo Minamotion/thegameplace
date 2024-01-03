@@ -23,11 +23,11 @@ class userPref {
 
     setup(){
         // Run all of the functions!
-        if (top.location.protocol !== 'https:') {
+        if (window.location.protocol !== 'https:') {
             // I want users to have a secure connection so I made this script
             localStorage.clear() // Clear info saved in the http protocol
             setTimeout(() => {
-                top.location.assign('https://thegameplace.minamotion.org'+this.location.pathname)
+                window.location.assign('https://thegameplace.minamotion.org'+this.location.pathname)
                 // After .01 seconds go to the safe location
             }, 10);
         } else {
