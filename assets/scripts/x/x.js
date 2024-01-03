@@ -1,24 +1,21 @@
 // Thanks "https://stackoverflow.com/questions/14266730/js-how-to-cache-a-variable" and "https://stackoverflow.com/questions/43642729/calling-a-method-from-another-method-in-the-same-class" for making this possible
 class userPref {
     constructor(){
-        this.darkmode = (localStorage.getItem('darkmode') == 'true') ? true : false // If true then true else false
         this.params = new URLSearchParams(window.location.search)
     }
 
-    async rundarkmode(){
+    async run(){
         if (this.params.has('light') && !(this.params.has('dark'))) {
             // We have to return to light mode
             localStorage.setItem('darkmode', 'false'); // Set darkmode to false
-            this.darkmode = false
             console.log('Log at "x.js": Dark mode disabled')
         }
-    
-        if (this.params.has('dark') || this.darkmode) {
+        if (this.params.has('dark') || ((localStorage.getItem('darkmode') == 'true') ? true : false)) {
             // We are in dark mode
             document.getElementById('darkmode').innerHTML = await fetch("/assets/stylesheets/modes/dark.css").then(e => e.text()); // Setup darkmode
-            if (!(this.darkmode)) {
+            if ((((localStorage.getItem('darkmode') == 'false') ? true : false))) {
                 //darkmode is false
-                this.set('darkmode', true) //darkmode was false
+                localStorage.setItem('darkmode', 'false'); // Set darkmode to false
                 console.log('Log at "x.js": Dark mode enabled')
             }
         }
@@ -34,7 +31,7 @@ class userPref {
                 // After .01 seconds go to the safe location
             }, 10);
         } else {
-            this.rundarkmode()
+            this.run()
         }
     }
 
@@ -46,30 +43,19 @@ class userPref {
                     localStorage.clear()
                     localStorage.setItem('darkmode', 'false');
                     window.location.reload()
-                }
-            }
-        }
-    }
-
-    set(setting, value){
-        switch (setting) {
-            case 'darkmode':
-                if(value == 'true' || value == 'false'){
-                    localStorage.setItem('darkmode', value)
-                    this.darkmode = value
                 } else {
-                    console.error('Error at "x.js": Variable "'+setting+'" cannot be set to "'+value+'" because it is not a boolean')
+                    alert('Ok.')
                 }
-                break;
-            default:
-                console.error('Error at "x.js": Variable "'+setting+'" cannot be set to "'+value+'" through this function')
-                break;
+            } else {
+                alert('Ok.')
+            }
+        } else {
+            alert('Ok.')
         }
     }
 }
 
-const settings = new userPref()
-settings.setup()
+new userPref().setup()
 
 if (top.location.pathname == "/editpref.html"){
     // We are in settings
@@ -80,7 +66,7 @@ if (top.location.pathname == "/editpref.html"){
 
     document.getElementById('modeswitchbutton').addEventListener('click', function(){
         // When this button was clicked then
-        settings.set('darkmode', (localStorage.getItem('darkmode') == 'false')?'true':'false')
+        localStorage.setItem('darkmode', (localStorage.getItem('darkmode') == 'false')?'true':'false')
         document.getElementById('modespan').innerHTML = !(localStorage.getItem('darkmode'))?'Light mode':'Dark mode'
     })
 
