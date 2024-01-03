@@ -25,17 +25,6 @@
                 <div class="hfButtons"></div>
             </div>
             <div id="contents">
-                <style>
-                .settinglist{
-                    background: #000000;
-                    width: 500;
-                    margin: 24;
-                }
-                .setting{
-                    width: 400;
-                    margin:12;
-                }
-                </style>
                 <noscript class="center-child">
                     <style>#settings{display:none}</style>
                     <h1>noscript text or easter egg</h1>
@@ -43,6 +32,20 @@
                 <script src="/assets/scripts/close.js" async></script>
                 <div id="settings">
                     <h1 style="margin:24">SETTINGS</h1>
+                    <style>
+                        .settinglist{
+                            background: #ffffffc5;
+                            color: #000000;
+                            width: 500;
+                            margin: 24;
+                            padding: 10;
+                        }
+                        .setting{
+                            width:400;
+                            margin:12;
+                            border: white solid 10px;
+                        }
+                    </style>
                     <div id="visualSettings" class="settinglist">
                         <h2>Visual</h2>
                         <div class="setting">
@@ -58,7 +61,7 @@
             <div class='wrap footer'>
                 <p style="margin: 24"><a href="https://www.youtube.com/@official_multilayer" title="The website I post videos on">YouTube</a> | <a href="https://scratch.mit.edu/users/MultiLayerScratch" title="The website I post most of my games on">Scratch</a> | <a href="https://github.com/Minamotion" title="The website I post websites on (Like this one!)">Github</a></p>
                 <div class="hfButtons">
-                    <button onclick="this.location.assign('/editpref.html')" disabled>Settings</button>
+                    <button onclick="alert('You\'re already here!')">Settings</button>
                 </div>
             </div>
         </page>
