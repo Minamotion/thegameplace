@@ -80,7 +80,7 @@ if (top.location.pathname == "/editpref.html"){
 
     document.getElementById('modeswitchbutton').addEventListener('click', function(){
         // When this button was clicked then
-        settings.set('darkmode', (settings.darkmode == 'false')?'true':'false')
+        settings.set('darkmode', (settings.darkmode == 'false')?true:false)
         document.getElementById('modespan').innerHTML = !(settings.darkmode)?'Light mode':'Dark mode'
     })
 
