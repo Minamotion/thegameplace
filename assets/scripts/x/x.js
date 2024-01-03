@@ -40,6 +40,33 @@ class userPref {
         this.runextrasafe()
         this.rundarkmode()
     }
+
+    clearAll(){
+        if(confirm('Are you sure about this? Remember: This is in danger zone for a reason, and its because it\'ll erase all of your settings, this can\'t be undone!')){
+            if(confirm('Are you REALLY sure about this? Remember: This is in danger zone for a reason, and its because it\'ll erase all of your settings, this can\'t be undone!')){
+                if(confirm('Are you SUPER-MEGA-REALLY sure about this? Remember: This is in danger zone for a reason, and its because it\'ll erase all of your settings, this can\'t be undone!')){
+                    alert('...as you wish.')
+                    localStorage.clear()
+                    localStorage.setItem('darkmode', 'false');
+                    window.location.reload()
+                }
+            }
+        }
+    }
 }
 
-new userPref().setup()
+const userPref = new userPref()
+userPref.setup()
+
+if (top.location.pathname == "/editpref.html"+top.location.search){
+    window.addEventListener('load', function(){
+        document.getElementById('modespan').innerHTML = !(userPref.darkmode)?'Light mode':'Dark mode'
+    })    
+    document.getElementById('modeswitchbutton').addEventListener('click', function(){
+        localStorage.setItem('darkmode', (userPref.darkmode == 'false')?'true':'false');
+        document.getElementById('modespan').innerHTML = !(userPref.darkmode)?'Light mode':'Dark mode'
+    })
+    document.getElementById('clearbutton').addEventListener('dblclick', function(){
+        userPref.clearAll()
+    })
+}
