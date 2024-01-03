@@ -5,7 +5,27 @@ class userPref {
         this.params = new URLSearchParams(window.location.search)
     }
 
-    runextrasafe(){
+    async rundarkmode(){
+        if (this.params.has('light') && !(this.params.has('dark'))) {
+            // We have to return to light mode
+            localStorage.setItem('darkmode', 'false'); // Set darkmode to false
+            this.darkmode = false
+            console.log('Log at "x.js": Dark mode disabled')
+        }
+    
+        if (this.params.has('dark') || this.darkmode) {
+            // We are in dark mode
+            document.getElementById('darkmode').innerHTML = await fetch("/assets/stylesheets/modes/dark.css").then(e => e.text()); // Setup darkmode
+            if (!(this.darkmode)) {
+                //darkmode is false
+                this.set('darkmode', true) //darkmode was false
+                console.log('Log at "x.js": Dark mode enabled')
+            }
+        }
+    }
+
+    setup(){
+        // Run all of the functions!
         if (top.location.protocol !== 'https:') {
             // I want users to have a secure connection so I made this script
             localStorage.clear() // Clear info saved in the http protocol
@@ -13,32 +33,9 @@ class userPref {
                 top.location.assign('https://thegameplace.minamotion.org'+this.location.pathname)
                 // After .01 seconds go to the safe location
             }, 10);
+        } else {
+            this.rundarkmode()
         }
-    }
-
-    async rundarkmode(){
-        if (this.params.has('light') && !(this.params.has('dark'))) {
-            // We have to return to light mode
-            localStorage.setItem('darkmode', 'false'); // Set darkmode to false
-            this.darkmode = false
-        }
-    
-        if (this.params.has('dark') || this.darkmode) {
-            // We are in dark mode
-            document.getElementById('darkmode').innerHTML = await fetch("/assets/stylesheets/modes/dark.css").then(e => e.text()); // Setup darkmode
-    
-            if (!(this.darkmode)) {
-                //darkmode is false
-                localStorage.setItem('darkmode', 'true') //darkmode was false
-                this.darkmode = true
-            }
-        }
-    }
-
-    setup(){
-        // Run all of the functions!
-        this.runextrasafe()
-        this.rundarkmode()
     }
 
     clearAll(){
@@ -53,20 +50,41 @@ class userPref {
             }
         }
     }
+
+    set(setting, value){
+        switch (setting) {
+            case 'darkmode':
+                if(value == true || value == false || value == 'true' || value == 'false'){
+                    localStorage.setItem('darkmode', toString(value))
+                    this.darkmode = value
+                } else {
+                    console.error('Error at "x.js": Variable "'+setting+'" cannot be set to "'+value+'" because it is not a boolean')
+                }
+                break;
+            default:
+                console.error('Error at "x.js": Variable "'+setting+'" cannot be set to "'+value+'" through this function')
+                break;
+        }
+    }
 }
 
-const userPref = new userPref()
-userPref.setup()
+const settings = new userPref()
+settings.setup()
 
-if (top.location.pathname == "/editpref.html"+top.location.search){
+if (top.location.pathname == "/editpref.html"){
+    // We are in settings
     window.addEventListener('load', function(){
-        document.getElementById('modespan').innerHTML = !(userPref.darkmode)?'Light mode':'Dark mode'
-    })    
-    document.getElementById('modeswitchbutton').addEventListener('click', function(){
-        localStorage.setItem('darkmode', (userPref.darkmode == 'false')?'true':'false');
-        document.getElementById('modespan').innerHTML = !(userPref.darkmode)?'Light mode':'Dark mode'
+        // Pre-load things
+        document.getElementById('modespan').innerHTML = !(settings.darkmode)?'Light mode':'Dark mode'
     })
+
+    document.getElementById('modeswitchbutton').addEventListener('click', function(){
+        // When this button was clicked then
+        settings.set('darkmode', (settings.darkmode == 'false')?'true':'false')
+        document.getElementById('modespan').innerHTML = !(settings.darkmode)?'Light mode':'Dark mode'
+    })
+
     document.getElementById('clearbutton').addEventListener('dblclick', function(){
-        userPref.clearAll()
+        settings.clearAll()
     })
 }
