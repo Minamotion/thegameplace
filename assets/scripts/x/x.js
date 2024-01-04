@@ -53,6 +53,7 @@ if (pageLocationIs("/editpref.html")){
         // Pre-load settings
         document.getElementById('modespan').innerHTML = !(localStorage.getItem('darkmode') == 'true')?'Light mode':'Dark mode'
         document.getElementById('seeinvisiblespan').innerHTML = !(localStorage.getItem('allowinvisible') == 'true')?'Safe mode':'Allowing mode'
+        document.getElementById('holidayspan').innerHTML = !(localStorage.getItem('fun') == true)?'No holidays :(':'Holidays! :D'
     })
     document.getElementById('modeswitchbutton').addEventListener('click', function(){
         // When this button is clicked then switch to dark/light mode
@@ -71,7 +72,7 @@ if (pageLocationIs("/editpref.html")){
         // What this means is that it will switch from celebrating holidays to not doing it
         // Holidays are turned on by default
         localStorage.setItem('fun', (localStorage.getItem('fun') == 'false')?'true':'false')
-        document.getElementById('holidayspan').innerHTML = !(localStorage.getItem('fun') == true)?'Boring':'Holidays'
+        document.getElementById('holidayspan').innerHTML = !(localStorage.getItem('fun') == true)?'No holidays :(':'Holidays! :D'
     })
     document.getElementById('clearbutton').addEventListener('dblclick', function(){
         if(confirm('Are you sure about this? Remember: This is in danger zone for a reason, and its because it\'ll erase all of your settings, this can\'t be undone!')){
