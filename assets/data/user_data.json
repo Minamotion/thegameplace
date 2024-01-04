@@ -3,7 +3,7 @@
         "nickname": "jerry",
         "disabled": false,
         "email": null,
-        "desc": "Hello guys! I'm Jerry, The LITERAL icon of this website xd\nI like holidays, games, etc., HELIUM.",
+        "desc": "Hello guys! I'm Jerry, The LITERAL icon of this website xd\n<span id='jerrystuff'>%jerrySpan%</span><script src='/assets/scripts/jerry.js' async></script>",
         "role": 2,
         "id": 100
     },
