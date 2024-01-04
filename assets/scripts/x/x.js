@@ -49,19 +49,16 @@ if(localStorage.length < 1){
 new SettingsObj().setup()
 if (pageLocationIs("/editpref.html")){
     // We are in settings
-
     window.addEventListener('load', function(){
         // Pre-load settings
         document.getElementById('modespan').innerHTML = !(localStorage.getItem('darkmode') == 'true')?'Light mode':'Dark mode'
         document.getElementById('seeinvisiblespan').innerHTML = !(localStorage.getItem('allowinvisible') == 'true')?'Safe mode':'Allowing mode'
     })
-
     document.getElementById('modeswitchbutton').addEventListener('click', function(){
         // When this button is clicked then switch to dark/light mode
         localStorage.setItem('darkmode', (localStorage.getItem('darkmode') == 'false')?'true':'false')
         document.getElementById('modespan').innerHTML = !(localStorage.getItem('darkmode') == 'true')?'Light mode':'Dark mode'
     })
-
     document.getElementById('seeinvisiblebutton').addEventListener('click', function(){
         // When this button is clicked then switch to safe/allowing mode
         // What this means is that it will switch from not seeing invisible games to seeing them
@@ -69,15 +66,13 @@ if (pageLocationIs("/editpref.html")){
         localStorage.setItem('allowinvisible', (localStorage.getItem('allowinvisible') == 'false')?'true':'false')
         document.getElementById('seeinvisiblespan').innerHTML = !(localStorage.getItem('allowinvisible') == true)?'Safe mode':'Allowing mode'
     })
-
-    document.getElementById('holidaybutton').addEventListener('click', function(){
+    document.getElementById('holidaybutton').addEventListener('dblclick', function(){
         // When this button is clicked then switch to boring/fun mode
         // What this means is that it will switch from celebrating holidays to not doing it
         // Holidays are turned on by default
         localStorage.setItem('fun', (localStorage.getItem('fun') == 'false')?'true':'false')
         document.getElementById('holidayspan').innerHTML = !(localStorage.getItem('fun') == true)?'Boring':'Holidays'
     })
-
     document.getElementById('clearbutton').addEventListener('dblclick', function(){
         if(confirm('Are you sure about this? Remember: This is in danger zone for a reason, and its because it\'ll erase all of your settings, this can\'t be undone!')){
             if(confirm('Are you REALLY sure about this? Remember: This is in danger zone for a reason, and its because it\'ll erase all of your settings, this can\'t be undone!')){
