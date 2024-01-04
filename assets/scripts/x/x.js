@@ -27,7 +27,7 @@ class userPref {
             // I want users to have a secure connection so I made this script
             localStorage.clear() // Clear info saved in the http protocol
             setTimeout(() => {
-                window.location.assign('https://thegameplace.minamotion.org'+this.location.pathname)
+                window.location.assign('https://thegameplace.minamotion.org'+window.location.pathname+window.location.search)
                 // After .01 seconds go to the safe location
             }, 10);
         } else {
@@ -42,6 +42,7 @@ class userPref {
                     alert('...as you wish.')
                     localStorage.clear()
                     localStorage.setItem('darkmode', 'false');
+                    localStorage.setItem('allowinvisible', 'false')
                     window.location.reload()
                 } else {
                     alert('Ok.')
@@ -62,12 +63,19 @@ if (top.location.pathname == "/editpref.html"){
     window.addEventListener('load', function(){
         // Pre-load things
         document.getElementById('modespan').innerHTML = !(localStorage.getItem('darkmode'))?'Light mode':'Dark mode'
+        document.getElementById('seeinvisiblespan').innerHTML = !(localStorage.getItem('allowinvisible'))?'Safe mode':'Allowing mode'
     })
 
     document.getElementById('modeswitchbutton').addEventListener('click', function(){
         // When this button was clicked then
         localStorage.setItem('darkmode', (localStorage.getItem('darkmode') == 'false')?'true':'false')
         document.getElementById('modespan').innerHTML = !(localStorage.getItem('darkmode'))?'Light mode':'Dark mode'
+    })
+
+    document.getElementById('seeinvisiblebutton').addEventListener('click', function(){
+        // When this button was clicked then
+        localStorage.setItem('allowinvisible', (localStorage.getItem('allowinvisible') == 'false')?'true':'false')
+        document.getElementById('seeinvisiblespan').innerHTML = !(localStorage.getItem('allowinvisible'))?'Safe mode':'Allowing mode'
     })
 
     document.getElementById('clearbutton').addEventListener('dblclick', function(){

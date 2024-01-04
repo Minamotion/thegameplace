@@ -39,7 +39,7 @@ async function loadGameslots(json) {
             curUser = getUser(userjson, json[x].coderID)
             // Proceed with setting up the game.
             document.getElementById('gametitle').innerHTML = json[x].title
-            document.getElementById('gamedetails').innerHTML = json[x].gameslotid+" | made by <a href='./userpage.html?coder="+curUser.id+"'>"+curUser.nickname+"</a>"
+            document.getElementById('gamedetails').innerHTML = json[x].gameslotid+" | made by <a href='./userpage.html?coder="+curUser.id+"'>"+curUser.nickname+"</a>"+(json[x].invisible)?' | Danger':' | Safe'
             document.getElementById('game').setAttribute('src', json[x].embedRes)
             document.getElementById('gamegiveopinion').setAttribute('onclick', "location.assign('mailto:"+curUser.email+"?subject=My opinion about your game \""+json[x].title+"\"&body=The gameslotid is "+json[x].gameslotid+"%0A%0A- Sent via TheGamePlace\"")
             if(json[x].desc !== null || json[x].desc !== ""){
@@ -62,7 +62,7 @@ async function loadGameslots(json) {
     if(!found) {
         // Create a gameslot with an error on it
         document.getElementById('gametitle').innerHTML = "Error"
-        document.getElementById('gamedetails').innerHTML = "Check console"
+        document.getElementById('gamedetails').innerHTML = "Something happened"
         document.getElementById('game').setAttribute('src', "/assets/embed/error.html?errtxt=CANNOT%20FIND%20UNEXISTENT&errcode=CASE__SEARCH_FOR_NULL_")
         document.getElementById('gamedesc').innerText = "This game has failed to load, check the console for more info"
         document.title = "TheGamePlace - Error"
