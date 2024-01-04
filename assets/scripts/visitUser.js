@@ -28,7 +28,7 @@ function checkUser(json, user) {
 		// If not disabled or missing then:
 		if (u.desc !== null) {
 			// If there is a description then: set it to userdescReg
-			document.getElementById('userdescReg').innerHTML = u.desc;
+			document.getElementById('userdescReg').innerHTML = u.desc.replace('\n','<br>');
 		}
 
 		switch (u.role) {
@@ -117,12 +117,8 @@ function checkUser(json, user) {
 				break;
 		}
 
-		document
-			.getElementById('useremailReg')
-			.setAttribute('href', 'mailto:' + u.email);
-		document
-			.getElementById('usericoReg')
-			.setAttribute('src', '/assets/images/users/' + u.id + '.png');
+		document.getElementById('useremailReg').setAttribute('href', 'mailto:' + u.email);
+		document.getElementById('usericoReg').setAttribute('src', '/assets/images/users/' + u.id + '.png');
 		document.title = 'TheGamePlace - ' + u.nickname;
 		document.getElementById('usernameReg').innerHTML = u.nickname;
 		document.getElementById('useridReg').innerHTML =
