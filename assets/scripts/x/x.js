@@ -35,15 +35,52 @@ class userPref {
         }
     }
 
+    setDefault(){
+        localStorage.clear()
+        localStorage.setItem('darkmode', 'false');
+        localStorage.setItem('allowinvisible', 'false')
+    }
+
     clearAll(){
+        this.setDefault()
+        window.location.reload()
+    }
+}
+
+new userPref().setup()
+
+if (top.location.pathname == "/editpref.html"){
+    // We are in settings
+    if(localStorage.length < 1){
+
+    }
+
+    window.addEventListener('load', function(){
+        // Pre-load settings
+        document.getElementById('modespan').innerHTML = !(localStorage.getItem('darkmode') == 'true')?'Light mode':'Dark mode'
+        document.getElementById('seeinvisiblespan').innerHTML = !(localStorage.getItem('allowinvisible') == 'true')?'Safe mode':'Allowing mode'
+    })
+
+    document.getElementById('modeswitchbutton').addEventListener('click', function(){
+        // When this button is clicked then switch to dark/light mode
+        localStorage.setItem('darkmode', (localStorage.getItem('darkmode') == 'false')?'true':'false')
+        document.getElementById('modespan').innerHTML = !(localStorage.getItem('darkmode') == 'true')?'Light mode':'Dark mode'
+    })
+
+    document.getElementById('seeinvisiblebutton').addEventListener('click', function(){
+        // When this button is clicked then switch to safe/allowing mode
+        // What this means is that it will switch from not seeing invisible games to seeing them
+        // It is turned off by default
+        localStorage.setItem('allowinvisible', (localStorage.getItem('allowinvisible') == 'false')?'true':'false')
+        document.getElementById('seeinvisiblespan').innerHTML = !(localStorage.getItem('allowinvisible') == true)?'Safe mode':'Allowing mode'
+    })
+
+    document.getElementById('clearbutton').addEventListener('dblclick', function(){
         if(confirm('Are you sure about this? Remember: This is in danger zone for a reason, and its because it\'ll erase all of your settings, this can\'t be undone!')){
             if(confirm('Are you REALLY sure about this? Remember: This is in danger zone for a reason, and its because it\'ll erase all of your settings, this can\'t be undone!')){
                 if(confirm('Are you SUPER-MEGA-REALLY sure about this? Remember: This is in danger zone for a reason, and its because it\'ll erase all of your settings, this can\'t be undone!')){
                     alert('...as you wish.')
-                    localStorage.clear()
-                    localStorage.setItem('darkmode', 'false');
-                    localStorage.setItem('allowinvisible', 'false')
-                    window.location.reload()
+                    settings.clearAll()
                 } else {
                     alert('Ok.')
                 }
@@ -53,32 +90,5 @@ class userPref {
         } else {
             alert('Ok.')
         }
-    }
-}
-
-new userPref().setup()
-
-if (top.location.pathname == "/editpref.html"){
-    // We are in settings
-    window.addEventListener('load', function(){
-        // Pre-load things
-        document.getElementById('modespan').innerHTML = !(localStorage.getItem('darkmode'))?'Light mode':'Dark mode'
-        document.getElementById('seeinvisiblespan').innerHTML = !(localStorage.getItem('allowinvisible'))?'Safe mode':'Allowing mode'
-    })
-
-    document.getElementById('modeswitchbutton').addEventListener('click', function(){
-        // When this button was clicked then
-        localStorage.setItem('darkmode', (localStorage.getItem('darkmode') == 'false')?'true':'false')
-        document.getElementById('modespan').innerHTML = !(localStorage.getItem('darkmode'))?'Light mode':'Dark mode'
-    })
-
-    document.getElementById('seeinvisiblebutton').addEventListener('click', function(){
-        // When this button was clicked then
-        localStorage.setItem('allowinvisible', (localStorage.getItem('allowinvisible') == 'false')?'true':'false')
-        document.getElementById('seeinvisiblespan').innerHTML = !(localStorage.getItem('allowinvisible'))?'Safe mode':'Allowing mode'
-    })
-
-    document.getElementById('clearbutton').addEventListener('dblclick', function(){
-        settings.clearAll()
     })
 }
