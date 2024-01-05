@@ -1,4 +1,4 @@
-const jerrysaylist=[
+let jerrysaylist=[
     'Nice too meet ya!',
     'This is my official account :D',
     'I\'m inside your wallet',
@@ -8,4 +8,6 @@ const jerrysaylist=[
 ];
 function randomInt(min,max){return Math.floor(Math.random()*(max-min+1))+min;}
 let coder = new URLSearchParams(window.location.search).get('coder')
-if(coder=='jerry'||coder==100){setTimeout(()=>{document.getElementById('jerrystuff').innerHTML=jerrysaylist[randomInt(0,jerrysaylist.length)];delete coder;},50);}
+let lengthOfJSL = Object.keys(jerrysaylist).length
+let s = randomInt(0,lengthOfJSL)
+if(coder=='jerry'||coder==100){setTimeout(()=>{document.getElementById('jerrystuff').innerHTML=jerrysaylist[s];},50);}
