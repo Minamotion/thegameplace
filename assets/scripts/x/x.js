@@ -1,9 +1,11 @@
 // For those who don't know what is this for, this script will run in all html pages (Except for embedded)
 // Thanks "https://stackoverflow.com/questions/14266730/js-how-to-cache-a-variable" and "https://stackoverflow.com/questions/43642729/calling-a-method-from-another-method-in-the-same-class" for making this possible
+function randomInt(min,max){return Math.floor(Math.random()*(max-min+1))+min;}
 function pageLocationIs(here){return(top.location.pathname==here)}
 class xObj {
     constructor(){this.params = new URLSearchParams(window.location.search)}
     async run(){
+        localStorage.setItem('randomnum', randomInt(1,(holidayWereOn == 'aprilfools')?2:7)+1)
         if (this.params.has('light') && !(this.params.has('dark'))) {
             // We have to return to light mode
             localStorage.setItem('darkmode', 'false'); // Set darkmode to false
@@ -18,12 +20,22 @@ class xObj {
                 console.log('Log at "x.js": Dark mode enabled')
             }
         }
+        switch(localStorage.getItem('randomnum')){
+            case 1:
+                // Replace pfp with butter (even tho i don't like butter)
+                document.getElementById('usericoReg').setAttribute('src','/assets/images/random/'+randomInt(1,5)+'.png')
+                break;
+            default:
+                console.log(false)
+                break;
+        }
     }
     setup(){
         // Run all of the functions!
         if (window.location.protocol !== 'https:') {
             // I want users to have a secure connection so I made this script
             localStorage.clear() // Clear info saved in the http protocol
+            sessionStorage.clear()
             setTimeout(() => {
                 window.location.assign('https://thegameplace.minamotion.org'+window.location.pathname+window.location.search)
                 // After .01 seconds go to the safe location
@@ -36,7 +48,7 @@ class xObj {
         localStorage.setItem('darkmode', 'false');
         localStorage.setItem('allowinvisible', 'false')
         localStorage.setItem('fun', 'true')
-        
+        localStorage.setItem('randomnum', '0')
     }
     clearAll(){
         sessionStorage.clear() // If there was anything that was useless then erase it

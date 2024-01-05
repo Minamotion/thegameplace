@@ -7,5 +7,5 @@ let jerrysaylist=[
     '<span title="Don\'t">Did you know that pressing <span style="font-family:monospace;">ALT+F4</span> you can take a screenshot of your screen? Try it out!</span>'
 ];
 function randomInt(min,max){return Math.floor(Math.random()*(max-min+1))+min;}
-while(document.getElementById('jerrystuff') == null){/* Do nothing lol */}
-setTimeout(()=>{document.getElementById('jerrystuff').innerHTML=jerrysaylist[randomInt(0,((Object.keys(jerrysaylist).length)-1))];},50);
+userpage = new URLSearchParams(window.location.search).get('coder')
+if(userpage == 100 || userpage == 'jerry'){while(document.getElementById('jerrystuff') == null){/* Do nothing lol */}setTimeout(()=>{document.getElementById('jerrystuff').innerHTML=jerrysaylist[randomInt(0,((Object.keys(jerrysaylist).length)-1))];},50);}
