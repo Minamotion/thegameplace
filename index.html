@@ -24,11 +24,11 @@
                 <img type='image/png' onerror="this.src='/assets/images/errimg.png';" src='/assets/images/favicon.png' width='80' height='80' style='margin: 12;margin-left: 24;' id="siteFavicon">
                 <img type='image/png' onerror="this.src='/assets/images/errimg.png';" src='/assets/images/headerTitleArt.png' width='250' height='80' style='margin: 12; margin-left: 24;' id='headerTitleArt'>
                 <div class="hfButtons">
-                    <button onclick="location.assign('/forms/gschoose.html')" >Your Games</button>
-                    <button onclick="location.assign('./rules.html')" >Rules</button>
-                    <button onclick="location.assign('https:\/\/forms.gle/gSrcidNP4p8g6cu3A')" >Report game</button>
-                    <button onclick="location.assign('/forms/usercreate.html')" >Create user</button>
-                    <button onclick="location.assign('/forms/userchoose.html')" >Edit user</button>
+                    <button class='button' onclick="location.assign('/forms/gschoose.html')" >Your Games</button>
+                    <button class='button' onclick="location.assign('./rules.html')" >Rules</button>
+                    <button class='button' onclick="location.assign('https:\/\/forms.gle/gSrcidNP4p8g6cu3A')" >Report game</button>
+                    <button class='button' onclick="location.assign('/forms/usercreate.html')" >Create user</button>
+                    <button class='button' onclick="location.assign('/forms/userchoose.html')" >Edit user</button>
                 </div>
             </div>
             <div id="contents">
@@ -40,14 +40,14 @@
                         <p>CANNOT FIND SPECIFIC</p>
                     </div>
                     <br>
-                    <button onclick="document.getElementById('err1').close()">OK</button>
+                    <button class='button' onclick="document.getElementById('err1').close()">OK</button>
                 </dialog>
         
                 <script src='/assets/scripts/search.js' async></script>
                 <script src="/assets/scripts/close.js" async></script>
                 <div style='margin: 24;justify-content: center; margin-bottom: 0;' class='wrap' id='searchgameslot'>
                     <input id='searchgameslot-input' type='search' style='height: 40; transform: translate(0px, 17px);' placeholder='Enter a gameslot id'>
-                    <button disabled id='scrolltogamebutton'>Scroll to game</button>
+                    <button class='button' disabled id='scrolltogamebutton'>Scroll to game</button>
                 </div>
                 <div style='margin: auto;'>
                     <div class='gamescroller'>
@@ -81,7 +81,7 @@
             <div class='wrap footer'>
                 <p style="margin: 24"><a href="https://www.youtube.com/@official_multilayer" title="The website I post videos on">YouTube</a> | <a href="https://scratch.mit.edu/users/MultiLayerScratch" title="The website I post most of my games on">Scratch</a> | <a href="https://github.com/Minamotion" title="The website I post websites on (Like this one!)">Github</a></p>
                 <div class="hfButtons">
-                    <button onclick="location.assign('/editpref.html')">Settings</button>
+                    <button class='button' onclick="location.assign('/editpref.html')">Settings</button>
                 </div>
             </div>
         </page>
