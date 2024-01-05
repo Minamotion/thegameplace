@@ -8,4 +8,4 @@ let jerrysaylist=[
 ];
 function randomInt(min,max){return Math.floor(Math.random()*(max-min+1))+min;}
 while(document.getElementById('jerrystuff') == null){/* Do nothing lol */}
-document.getElementById('jerrystuff').innerHTML=jerrysaylist[randomInt(0,((Object.keys(jerrysaylist).length)-1))];
+setTimeout(()=>{document.getElementById('jerrystuff').innerHTML=jerrysaylist[randomInt(0,((Object.keys(jerrysaylist).length)-1))];},50);

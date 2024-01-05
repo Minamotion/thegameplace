@@ -30,7 +30,29 @@ input[type=search] {
     font-family: "Bitcattoleman";
 }
 
+input[type=text] {
+    background: white;
+    border: none;
+    color: black;
+    font-family: "Bitcattoleman";
+}
+
+textarea {
+    background: white;
+    border: none;
+    color: black;
+    font-family: "Bitcattoleman";
+}
+
 input[type=search]:hover {
+    cursor: url('/assets/images/cursor/hand.png'), pointer;
+}
+
+input[type=text]:hover {
+    cursor: url('/assets/images/cursor/hand.png'), pointer;
+}
+
+textarea:hover {
     cursor: url('/assets/images/cursor/hand.png'), pointer;
 }
 
