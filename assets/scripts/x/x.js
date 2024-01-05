@@ -1,7 +1,7 @@
 // For those who don't know what is this for, this script will run in all html pages (Except for embedded)
 // Thanks "https://stackoverflow.com/questions/14266730/js-how-to-cache-a-variable" and "https://stackoverflow.com/questions/43642729/calling-a-method-from-another-method-in-the-same-class" for making this possible
 function pageLocationIs(here){return(top.location.pathname==here)}
-class SettingsObj {
+class xObj {
     constructor(){this.params = new URLSearchParams(window.location.search)}
     async run(){
         if (this.params.has('light') && !(this.params.has('dark'))) {
@@ -33,20 +33,22 @@ class SettingsObj {
         }
     }
     setDefault(){
-        localStorage.clear() // If there was anything that was useless then erase it
         localStorage.setItem('darkmode', 'false');
         localStorage.setItem('allowinvisible', 'false')
         localStorage.setItem('fun', 'true')
+        
     }
     clearAll(){
+        sessionStorage.clear() // If there was anything that was useless then erase it
+        localStorage.clear() // If there was anything that was useless then erase it
         this.setDefault()
         window.location.reload()
     }
 }
 if(localStorage.length < 1){
-    new SettingsObj().setDefault()
+    new xObj().setDefault()
 }
-new SettingsObj().setup()
+new xObj().setup()
 if (pageLocationIs("/editpref.html")){
     // We are in settings
     window.addEventListener('load', function(){
@@ -75,11 +77,11 @@ if (pageLocationIs("/editpref.html")){
         document.getElementById('holidayspan').innerHTML = !(localStorage.getItem('fun') == 'true')?'Grinch mode':'Holiday mode'
     })
     document.getElementById('clearbutton').addEventListener('dblclick', function(){
-        if(confirm('Are you sure about this? Remember: This is in danger zone for a reason, and its because it\'ll erase all of your settings, this can\'t be undone!')){
-            if(confirm('Are you REALLY sure about this? Remember: This is in danger zone for a reason, and its because it\'ll erase all of your settings, this can\'t be undone!')){
-                if(confirm('Are you SUPER-MEGA-REALLY sure about this? Remember: This is in danger zone for a reason, and its because it\'ll erase all of your settings, this can\'t be undone!')){
+        if(confirm('Are you sure about this? Remember: This is in danger zone for a reason, and its because it\'ll erase all of your data, this can\'t be undone!')){
+            if(confirm('Are you REALLY sure about this? Remember: This is in danger zone for a reason, and its because it\'ll erase all of your data, this can\'t be undone!')){
+                if(confirm('Are you SUPER-MEGA-REALLY sure about this? Remember: This is in danger zone for a reason, and its because it\'ll erase all of your data, this can\'t be undone!')){
                     alert('...as you wish.')
-                    new SettingsObj().clearAll()
+                    new xObj().clearAll()
                 } else {
                     alert('Ok.')
                 }

@@ -4,6 +4,7 @@ assets/data/user_data.json
 assets/images/users/
 assets/data/games/
 assets/data/fonts/
+assets/data/scripts/x/x.js
 newpage.html
 CNAME
 *.gitignore
