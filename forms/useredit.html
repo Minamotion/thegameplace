@@ -34,9 +34,9 @@
                     <form action="https://formspree.io/f/mnqeqlga" method="POST" enctype="multipart/form-data" id="form">
                         <h2>Edit your userpage!</h2>
                         <p>* Required</p>
-                        <p>Please note that you will be sending an email to the creator through "mailto:", not the safest way but what else could I do? Do it on PHP? Too complex!</p><br>
                         <label for="name">Nickname:</label><input type="text" name="name"><br>
-                        <label for="icon">Icon (Only PNG Files):</label><input type="file" name="icon" accept=".png"><br>
+                        <label for="icon">Icon (URL):</label><input type="url" name="icon" value="https://USERNAME.github.io/exampleicon.com">
+                        <img src="/assets/images/users/default.png" onchange="this.src=document.getElementById.value"><br>
                         <label for="desc">Description (HTML is supported):</label><br><textarea name="desc"></textarea><br>
                         <br><input type="submit" value="Send"><input type="reset" value="Reset">
                     </form>
