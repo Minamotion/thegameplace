@@ -1,12 +1,13 @@
 /* Styles */
 .gamescroller {
-    background: #000000;
+    background: #22523c;
     overflow: auto;
     height: 575;
     width: 90%;
-    border-color: lavender;
+    border-color: #317c5a;
     border-style: solid;
     border-width: 10;
+    border-radius: 30px;
     margin: auto;
     margin-bottom: 24px;
     margin-top: 24px;

@@ -14,41 +14,8 @@ dialog {
     background: #aaaaaa;
 }
 
-input[type=search], input[type=text], input[type=search], textarea, input[type=url] {
-    background: white;
-    border: none;
-    color: black;
-    font-family: "Bitcattoleman";
-}
-
-input[type=search]:hover, input[type=text]:hover, input[type=search]:hover, textarea:hover, input[type=url]:hover {
-    cursor: url('/assets/images/cursor/hand.png'), pointer;
-}
-
 input::placeholder {
     color: #0000004a
-}
-
-.button:enabled {
-    cursor: url('/assets/images/cursor/hand.png'), text;
-}
-
-.button:hover {
-    background: #6e6e6e;
-    cursor: url('/assets/images/cursor/hand.png'), pointer;
-}
-
-.button:disabled {
-    background: #eeeeee;
-    color: black;
-    animation-name: disable;
-    animation-duration: 2s;
-}
-
-.button:enabled:active {
-    background: #111111;
-    color: #666666;
-    cursor: url('/assets/images/cursor/hand.png'), pointer;
 }
 
 .dialogTitle {
