@@ -5,6 +5,7 @@ function pageLocationIs(here){return(top.location.pathname==here)}
 class xObj {
     constructor(){this.params = new URLSearchParams(window.location.search)}
     async run(){
+        localStorage.setItem('randomnum', randomInt(1,(holidayWereOn == 'aprilfools')?2:7)+1)
         if (this.params.has('light') && !(this.params.has('dark'))) {
             // We have to return to light mode
             localStorage.setItem('darkmode', 'false'); // Set darkmode to false

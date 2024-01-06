@@ -8,4 +8,4 @@ let jerrysaylist=[
 ];
 function randomInt(min,max){return Math.floor(Math.random()*(max-min+1))+min;}
 userpage = new URLSearchParams(window.location.search).get('coder')
-if(userpage == 100 || userpage == 'jerry'){while(document.getElementById('jerrystuff') == null){/* Do nothing lol */}setTimeout(()=>{document.getElementById('jerrystuff').innerHTML=jerrysaylist[randomInt(0,((Object.keys(jerrysaylist).length)-1))];},50);}
+if(userpage==100||userpage=='jerry'){while(document.getElementById('jerrystuff')==null){}setTimeout(()=>{document.getElementById('jerrystuff').innerHTML=jerrysaylist[randomInt(0,((Object.keys(jerrysaylist).length)-1))];},50);}

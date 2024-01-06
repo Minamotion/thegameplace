@@ -23,7 +23,6 @@ function getUser(json, userSearch) {
 
 function checkUser(json, user) {
 	u = new getUser(json, user);
-	localStorage.setItem('randomnum', randomInt(1,(holidayWereOn == 'aprilfools')?2:7)+1)
 	if (!(u == null || u == undefined || u == '') || !u.disabled) {
 		// If not disabled or missing then:
 		if (u.desc !== null) {
