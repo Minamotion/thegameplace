@@ -3,9 +3,35 @@
 function randomInt(min,max){return Math.floor(Math.random()*(max-min+1))+min;}
 function pageLocationIs(here){return(top.location.pathname==here)}
 class xObj {
-    constructor(){this.params = new URLSearchParams(window.location.search)}
+    constructor(){
+        this.params = new URLSearchParams(window.location.search)
+        this.urlCantClose = ["/404.html","/newpage.html","/editpref.html"]
+    }
     async run(){
-        localStorage.setItem('randomnum', randomInt(1,(holidayWereOn == 'aprilfools')?2:7)+1)
+        localStorage.setItem('randomnum', randomInt(1,(holidayWereOn == 'aprilfools')?2:7))
+        let cantClose = false
+            this.urlCantClose.forEach(element => {
+                if(pageLocationIs(element)){
+                    cantClose = true
+                }
+            });
+        if(!cantClose || !(pageLocationIs('/closed.html'))){
+            let isTheMoonAlreadyAwake = !(new Date().getHours() > 6 && new Date().getHours() < 20)
+            // When page loaded if is night time then go to closed.html
+            if(isTheMoonAlreadyAwake){
+                this.location.assign('/closed.html')
+            }
+        } else {
+            if(pageLocationIs('/closed.html')){
+                let isTheSunAlreadyAwake = (new Date().getHours() > 6 && new Date().getHours() < 20)
+                // When page loaded if is day time then go to index.html
+                if(isTheSunAlreadyAwake){
+                    this.location.assign('/index.html')
+                }
+            } else {
+                console.warn('Warning from "x.js": This page cannot be redirected to the closed page')
+            }
+        }
         if (this.params.has('light') && !(this.params.has('dark'))) {
             // We have to return to light mode
             localStorage.setItem('darkmode', 'false'); // Set darkmode to false
