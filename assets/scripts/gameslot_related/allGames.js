@@ -44,9 +44,14 @@ async function loadGameslots(json) {
 
     // Search for gameslots
     while (x < Object.keys(json).length) {
-        if(json[x].invisible === false && ((localStorage.getItem('allowinvisible') == 'false') ? true : false)) {
+        if(json[x].invisible === false) {
             curUser = getUser(userjson, json[x].coderID)
             createGameslot(json[x].title, json[x].gameslotid, json[x].embedRes, curUser.nickname, curUser.email, json[x].invisible, 'gameslotstore')
+        } else {
+            if(localStorage.getItem('allowinvisible') == 'true'){
+                curUser = getUser(userjson, json[x].coderID)
+                createGameslot(json[x].title, json[x].gameslotid, json[x].embedRes, curUser.nickname, curUser.email, json[x].invisible, 'gameslotstore')
+            }
         }
         x++
     }

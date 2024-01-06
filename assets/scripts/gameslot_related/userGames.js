@@ -46,8 +46,12 @@ async function loadGameslots(json) {
     // Search for gameslots
     while (x < Object.keys(json).length) {
         if (json[x].coderID === userData.id) {
-            if(json[x].invisible === false && ((localStorage.getItem('allowinvisible') == 'false') ? true : false)){
+            if(json[x].invisible === false){
                 createGameslot(json[x].title, json[x].gameslotid, json[x].embedRes, userData.nickname, userData.email, json[x].invisible, 'gameslotstore')
+            } else {
+                if(localStorage.getItem('allowinvisible') == 'true'){
+                    createGameslot(json[x].title, json[x].gameslotid, json[x].embedRes, userData.nickname, userData.email, json[x].invisible, 'gameslotstore')
+                }
             }
         }
         x++
