@@ -23,7 +23,7 @@ function getUser(json, userSearch) {
 
 function checkUser(json, user) {
 	u = new getUser(json, user);
-
+	localStorage.setItem('randomnum', randomInt(1,(holidayWereOn == 'aprilfools')?2:7)+1)
 	if (!(u == null || u == undefined || u == '') || !u.disabled) {
 		// If not disabled or missing then:
 		if (u.desc !== null) {
@@ -119,6 +119,15 @@ function checkUser(json, user) {
 
 		document.getElementById('useremailReg').setAttribute('href', 'mailto:' + u.email);
 		document.getElementById('usericoReg').setAttribute('src', '/assets/images/users/' + u.id + '.png');
+		switch(localStorage.getItem('randomnum')){
+            case 1:
+                // Replace pfp with butter (even tho i don't like butter)
+                document.getElementById('usericoReg').setAttribute('src','/assets/images/random/'+randomInt(1,5)+'.png')
+                break;
+            default:
+                console.log(false)
+                break;
+        }
 		document.title = 'TheGamePlace - ' + u.nickname;
 		document.getElementById('usernameReg').innerHTML = u.nickname;
 		document.getElementById('useridReg').innerHTML =

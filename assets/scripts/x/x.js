@@ -5,7 +5,6 @@ function pageLocationIs(here){return(top.location.pathname==here)}
 class xObj {
     constructor(){this.params = new URLSearchParams(window.location.search)}
     async run(){
-        localStorage.setItem('randomnum', randomInt(1,(holidayWereOn == 'aprilfools')?2:7)+1)
         if (this.params.has('light') && !(this.params.has('dark'))) {
             // We have to return to light mode
             localStorage.setItem('darkmode', 'false'); // Set darkmode to false
@@ -19,15 +18,6 @@ class xObj {
                 localStorage.setItem('darkmode', 'false'); // Set darkmode to false
                 console.log('Log at "x.js": Dark mode enabled')
             }
-        }
-        switch(localStorage.getItem('randomnum')){
-            case 1:
-                // Replace pfp with butter (even tho i don't like butter)
-                document.getElementById('usericoReg').setAttribute('src','/assets/images/random/'+randomInt(1,5)+'.png')
-                break;
-            default:
-                console.log(false)
-                break;
         }
     }
     setup(){
