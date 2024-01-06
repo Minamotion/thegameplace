@@ -8,7 +8,6 @@ class xObj {
         this.urlCantClose = ["/404.html","/newpage.html","/editpref.html"]
     }
     async run(){
-        localStorage.setItem('randomnum', randomInt(1,(holidayWereOn == 'aprilfools')?2:7))
         let cantClose = false
             this.urlCantClose.forEach(element => {
                 if(pageLocationIs(element)){
