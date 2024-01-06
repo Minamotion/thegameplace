@@ -22,11 +22,6 @@ dialog {
     border-color: #0000ff;
 }
 
-input[type=search] {
-    background: #0000ff;
-    color: #000000;
-}
-
 input::placeholder {
     color: #0000007e
 }

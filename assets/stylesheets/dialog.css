@@ -4,23 +4,14 @@ dialog::backdrop {
 }
 
 dialog {
-    text-align: center;
     color: #ffffff;
     background-color: #000000;
-    border-style: solid;
     border-color: #66cc9e;
-    border-radius: 50px;
-    border-width: 10px;
 }
 
-button {
-    font-family: "Bitcattoleman";
-    margin: 12;
-    width: 120;
-    height: 50;
+.button {
     color: white;
     background: #aaaaaa;
-    border-style: none;
 }
 
 input[type=search], input[type=text], input[type=search], textarea, input[type=url] {
