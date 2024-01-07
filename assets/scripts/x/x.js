@@ -18,14 +18,14 @@ class xObj {
             let isTheMoonAlreadyAwake = !(new Date().getHours() > 6 && new Date().getHours() < 20)
             // When page loaded if is night time then go to closed.html
             if(isTheMoonAlreadyAwake){
-                this.location.assign('/closed.html')
+                top.location.assign('/closed.html')
             }
         } else {
             if(pageLocationIs('/closed.html')){
                 let isTheSunAlreadyAwake = (new Date().getHours() > 6 && new Date().getHours() < 20)
                 // When page loaded if is day time then go to index.html
                 if(isTheSunAlreadyAwake){
-                    this.location.assign('/index.html')
+                    top.location.assign('/index.html')
                 }
             } else {
                 console.warn('Warning from "x.js": This page cannot be redirected to the closed page')

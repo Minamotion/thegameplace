@@ -25,12 +25,11 @@ function getUser(json, userSearch) {
 }
 
 function checkUser(json, user) {
-	u = new getUser(json, user);
-	if (u !== null || !u.disabled) {
+	if (user !== null || !user.disabled) {
 		// If not disabled or missing then:
-		if (u.desc !== null) {
+		if (user.desc !== null) {
 			// If there is a description then: set it to userdescReg
-			document.getElementById('userdescReg').innerHTML = u.desc.replace('\n','<br>');
+			document.getElementById('userdescReg').innerHTML = user.desc.replace('\n','<br>');
 			let jerrysaylist=[
 				'Nice too meet ya!',
 				'This is my official account :D',
@@ -44,7 +43,7 @@ function checkUser(json, user) {
 			if(user==100||user=='jerry'){while(document.getElementById('jerrystuff')==null){}setTimeout(()=>{document.getElementById('jerrystuff').innerHTML=jerrysaylist[randomInt(0,((Object.keys(jerrysaylist).length)-1))];},5);}
 		}
 
-		switch (u.role) {
+		switch (user.role) {
 			// How this works
 			// Positive value = Normal or Good
 			// Negative value = Bad
@@ -129,8 +128,8 @@ function checkUser(json, user) {
 					.setAttribute('style', 'color: #353535; margin: 10;');
 				break;
 		}
-		document.getElementById('useremailReg').setAttribute('href', 'mailto:' + u.email);
-		document.getElementById('usericoReg').setAttribute('src', '/assets/images/users/' + u.id + '.png');
+		document.getElementById('useremailReg').setAttribute('href', 'mailto:' + user.email);
+		document.getElementById('usericoReg').setAttribute('src', '/assets/images/users/' + user.id + '.png');
 		localStorage.setItem('randomnum', randomInt(1,(holidayWereOn == 'aprilfools')?2:4))
 		switch(localStorage.getItem('randomnum')){
             case '1': // String because i cant get the number and i'm lazy to do it
@@ -141,12 +140,12 @@ function checkUser(json, user) {
 				// Do nothing
                 break;
         }
-		document.title = 'TheGamePlace - ' + u.nickname;
-		document.getElementById('usernameReg').innerHTML=u.nickname;
-		document.getElementById('useridReg').innerHTML='<a href="/userpage.html?coder='+u.id+'">'+u.id+'</a>';
+		document.title = 'TheGamePlace - ' + user.nickname;
+		document.getElementById('usernameReg').innerHTML=user.nickname;
+		document.getElementById('useridReg').innerHTML='<a href="/userpage.html?coder='+user.id+'">'+user.id+'</a>';
 	} else {
 		// There is no user or account is disabled
-		if (u.disabled) {
+		if (user.disabled) {
 			document.getElementById('errUserSpecific2').showModal();
 		} else {
 			document.getElementById('errUserSpecific1').showModal();
@@ -156,4 +155,4 @@ function checkUser(json, user) {
 
 fetch('/assets/data/user_data.json')
 	.then(response=>response.json())
-	.then(data=>checkUser(data,new URLSearchParams(window.location.search).get('coder'))).catch(error=>console.error('Error at "visitUser.js": Catch error{"' + error + '"}'));
+	.then(data=>checkUser(data,getUser(data, new URLSearchParams(window.location.search).get('coder')))).catch(error=>console.error('Error at "visitUser.js": Catch error{"' + error + '"}'));
