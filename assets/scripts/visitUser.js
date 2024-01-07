@@ -23,7 +23,6 @@ function getUser(json, userSearch) {
 	// No user was found so
 	return null
 }
-
 function checkUser(json, user) {
 	if (user !== null || !user.disabled) {
 		// If not disabled or missing then:
@@ -42,7 +41,6 @@ function checkUser(json, user) {
 			];
 			if(user==100||user=='jerry'){while(document.getElementById('jerrystuff')==null){}setTimeout(()=>{document.getElementById('jerrystuff').innerHTML=jerrysaylist[randomInt(0,((Object.keys(jerrysaylist).length)-1))];},5);}
 		}
-
 		switch (user.role) {
 			// How this works
 			// Positive value = Normal or Good
@@ -152,7 +150,9 @@ function checkUser(json, user) {
 		}
 	}
 }
-
 fetch('/assets/data/user_data.json')
 	.then(response=>response.json())
-	.then(data=>checkUser(data,getUser(data, new URLSearchParams(window.location.search).get('coder')))).catch(error=>console.error('Error at "visitUser.js": Catch error{"' + error + '"}'));
+	.then(data=>{
+		checkUser(data,getUser(data, new URLSearchParams(window.location.search).get('coder')))
+	})
+	.catch(error=>console.error('Error at "visitUser.js": Catch error{"'+error+'"}'));
