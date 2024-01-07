@@ -5,7 +5,7 @@ function pageLocationIs(here){return(top.location.pathname==here)}
 class xObj {
     constructor(){
         this.params = new URLSearchParams(window.location.search)
-        this.urlCantClose = ["/404.html","/newpage.html","/editpref.html"]
+        this.urlCantClose = ["/404.html","/newpage.html","/editpref.html", "/closed.html"]
     }
     async run(){
         let cantClose = false
@@ -14,21 +14,10 @@ class xObj {
                     cantClose = true
                 }
             });
-        if(!cantClose || !(pageLocationIs('/closed.html'))){
+        if(!(cantClose)){
             let isTheMoonAlreadyAwake = !(new Date().getHours() > 6 && new Date().getHours() < 20)
-            // When page loaded if is night time then go to closed.html
             if(isTheMoonAlreadyAwake){
                 top.location.assign('/closed.html')
-            }
-        } else {
-            if(pageLocationIs('/closed.html')){
-                let isTheSunAlreadyAwake = (new Date().getHours() > 6 && new Date().getHours() < 20)
-                // When page loaded if is day time then go to index.html
-                if(isTheSunAlreadyAwake){
-                    top.location.assign('/index.html')
-                }
-            } else {
-                console.warn('Warning from "x.js": This page cannot be redirected to the closed page')
             }
         }
         if (this.params.has('light') && !(this.params.has('dark'))) {
