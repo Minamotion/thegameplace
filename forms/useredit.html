@@ -31,8 +31,9 @@
                     <form action="https://formspree.io/f/mnqeqlga" method="POST" enctype="multipart/form-data" id="form">
                         <h2>Edit your userpage!</h2>
                         <p>* Required</p>
+                        <label for="email">Email*:</label><input type="email" name="email" required><br><br>
                         <label for="name">Nickname:</label><input type="text" name="name"><br><br>
-                        <label for="icon">Icon (URL (not "file://") to PNG):</label><input type="url" name="icon" id="icon"><br><img src="/assets/images/users/default.png" onchange="this.src=document.getElementById('icon').value" onerror="this.src='/assets/images/users/default.png'"><br><br>
+                        <label for="icon">Icon (Must be a PNG with maximum 1MB):</label><input type="file" accept="image/png" name="icon" onchange="if(this.files[0].size > 1048576){alert('File must be less than 1MB');this.value='';}"><br><br>
                         <label for="desc">Description (HTML is supported):</label><br><textarea name="desc"></textarea><br><br>
                         <br><input type="submit" class="button" value="Send"><input type="reset" class="button" value="Reset">
                     </form>
