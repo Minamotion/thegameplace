@@ -20,11 +20,13 @@ function getUser(json, userSearch) {
 		}
 		i++;
 	}
+	// No user was found so
+	return null
 }
 
 function checkUser(json, user) {
 	u = new getUser(json, user);
-	if (!(u == null || u == undefined || u == '') || !u.disabled) {
+	if (u !== null || !u.disabled) {
 		// If not disabled or missing then:
 		if (u.desc !== null) {
 			// If there is a description then: set it to userdescReg
@@ -131,7 +133,7 @@ function checkUser(json, user) {
 		document.getElementById('usericoReg').setAttribute('src', '/assets/images/users/' + u.id + '.png');
 		localStorage.setItem('randomnum', randomInt(1,(holidayWereOn == 'aprilfools')?2:4))
 		switch(localStorage.getItem('randomnum')){
-            case 1:
+            case '1': // String because i cant get the number and i'm lazy to do it
                 // Replace pfp with random images
                 document.getElementById('usericoReg').setAttribute('src','/assets/images/random/'+randomInt(1,5)+'.png')
                 break;
@@ -153,13 +155,5 @@ function checkUser(json, user) {
 }
 
 fetch('/assets/data/user_data.json')
-	.then(response => response.json())
-	.then(data =>
-		checkUser(
-			data,
-			new URLSearchParams(window.location.search).get('coder')
-		)
-	)
-	.catch(error =>
-		console.error('Error at "visitUser.js": Catch error{"' + error + '"}')
-	);
+	.then(response=>response.json())
+	.then(data=>checkUser(data,new URLSearchParams(window.location.search).get('coder'))).catch(error=>console.error('Error at "visitUser.js": Catch error{"' + error + '"}'));

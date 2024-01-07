@@ -1,24 +1,27 @@
+function randomInt(min,max){return Math.floor(Math.random()*(max-min+1))+min;}
 function getUser(json, userSearch) {
-    // Define variables
-    let i = 0
-    let isId = !(isNaN(userSearch))
+	// Define variables
+	let i = 0;
+	let isId = !isNaN(userSearch);
 
-    // Go through all of the json and find user then return their data
-    while (i < Object.keys(json).length) {
-        switch (isId) {
-            case false:
-                if (json[i].nickname === userSearch) {
-                    return json[i]
-                }
-                break;
-            default:
-                if (json[i].id === userSearch) {
-                    return json[i]
-                }
-                break;
-        }
-        i++
-    }
+	// Go through all of the json and find user then return their data
+	while (i < Object.keys(json).length) {
+		switch (isId) {
+			case false:
+				if (json[i].nickname == userSearch) {
+					return json[i];
+				}
+				break;
+			default:
+				if (json[i].id == userSearch) {
+					return json[i];
+				}
+				break;
+		}
+		i++;
+	}
+	// No user was found so
+	return null
 }
 
 function loadGameslot(title, gsid, url, uid, uname, gsdesc, unsafe, email){
