@@ -5,13 +5,13 @@ function pageLocationIs(here){return(top.location.pathname==here)}
 class xObj {
     constructor(){
         this.params = new URLSearchParams(window.location.search)
-        this.urlCantClose = ["/404.html","/newpage.html","/editpref.html", "/closed.html"]
+        this.urlCanClose = ["/404.html","/newpage.html", "/index.html", "/game.html", "/", "", "/userpage.html"]
     }
     async run(){
-        let cantClose = false
-            this.urlCantClose.forEach(element => {
+        let cantClose = true
+            this.urlCanClose.forEach(element => {
                 if(pageLocationIs(element)){
-                    cantClose = true
+                    cantClose = false
                 }
             });
         if(!(cantClose)){
