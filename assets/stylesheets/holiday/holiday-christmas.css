@@ -9,7 +9,7 @@
 
 #body {
     color: black;
-    background: #ffffff;
+    background: #d0fdff;
 }
 
 dialog::backdrop {
@@ -31,7 +31,7 @@ dialog {
 }
 
 .gameslot {
-    background-color: #ffffff;
+    background-color: #d0fdff;
     color: #ff0000;
     border-color: #00eaff;
 }
