@@ -38,7 +38,7 @@
                         <script async>
                             document.getElementById('icon').addEventListener('change',()=>{
                                 function getBase64(file){var reader=new FileReader();reader.readAsDataURL(file);reader.onload=function(){console.log(reader.result);};reader.onerror=function(error){console.log('Error: ',error);};}
-                                document.getElementById('preview').src = getBase64(this.files[0])
+                                document.getElementById('preview').src = getBase64(document.getElementById('icon').files[0])
                             })
                         </script>
                         <label for="desc">Description (HTML is supported):</label><br><textarea name="desc"></textarea><br><br>
