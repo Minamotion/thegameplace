@@ -36,9 +36,20 @@
                         <label for="icon">Icon <span title="418x418 pixels/600 Dots per Inch/48bit png file (Calculated in 'https://jan.ucc.nau.edu/lrm22/pixels2bytes/calculator.htm')">(Must be a PNG with maximum 1MB)</span>:</label><input type="file" accept="image/png" name="icon" id="icon" onchange="if(this.files[0].size > 1048576){alert('File must be less than 1MB');this.value='';}"><br><br>
                         <img src="/assets/images/users/default.png" id="preview" width="80" height="80" class="userPfp"><br><br>
                         <script async>
+                            // Thanks "https://stackoverflow.com/questions/36280818/how-to-convert-file-to-base64-in-javascript" for this answer
+                            // I now realize that every answer I get, I get it from stackoverflow, it's like a programming heaven :0
+                            const toBase64 = file => new Promise((resolve, reject) => {
+                                const reader = new FileReader();
+                                reader.readAsDataURL(file);
+                                reader.onload = () => resolve(reader.result);
+                                reader.onerror = reject;
+                            });
+                            async function setPreview() {
+                                const file = document.getElementById('icon').files[0]
+                                document.getElementById('preview').src = await toBase64(file)
+                            }
                             document.getElementById('icon').addEventListener('change',()=>{
-                                function getBase64(file){var reader=new FileReader();reader.readAsDataURL(file);reader.onload=function(){console.log(reader.result);};reader.onerror=function(error){console.log('Error: ',error);};}
-                                document.getElementById('preview').src = getBase64(document.getElementById('icon').files[0])
+                                setPreview()
                             })
                         </script>
                         <label for="desc">Description (HTML is supported):</label><br><textarea name="desc"></textarea><br><br>
