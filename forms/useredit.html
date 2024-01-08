@@ -33,7 +33,14 @@
                         <p>* Required</p>
                         <label for="email">Email*:</label><input type="email" name="email" required><br><br>
                         <label for="name">Nickname:</label><input type="text" name="name"><br><br>
-                        <label for="icon">Icon <span title="418x418 pixels/600 Dots per Inch/48bit png file (Calculated in 'https://jan.ucc.nau.edu/lrm22/pixels2bytes/calculator.htm')">(Must be a PNG with maximum 1MB)</span>:</label><input type="file" accept="image/png" name="icon" onchange="if(this.files[0].size > 1048576){alert('File must be less than 1MB');this.value='';}"><br><br>
+                        <label for="icon">Icon <span title="418x418 pixels/600 Dots per Inch/48bit png file (Calculated in 'https://jan.ucc.nau.edu/lrm22/pixels2bytes/calculator.htm')">(Must be a PNG with maximum 1MB)</span>:</label><input type="file" accept="image/png" name="icon" id="icon" onchange="if(this.files[0].size > 1048576){alert('File must be less than 1MB');this.value='';}"><br><br>
+                        <img src="/assets/images/users/default.png" id="preview" width="80" height="80" class="userPfp"><br><br>
+                        <script async>
+                            document.getElementById('icon').addEventListener('change',()=>{
+                                function getBase64(file){var reader=new FileReader();reader.readAsDataURL(file);reader.onload=function(){console.log(reader.result);};reader.onerror=function(error){console.log('Error: ',error);};}
+                                document.getElementById('preview').src = getBase64(this.files[0])
+                            })
+                        </script>
                         <label for="desc">Description (HTML is supported):</label><br><textarea name="desc"></textarea><br><br>
                         <br><input type="submit" class="button" value="Send"><input type="reset" class="button" value="Reset">
                     </form>
