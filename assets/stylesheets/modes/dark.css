@@ -11,7 +11,3 @@
     color: #ffffff;
     background: #06130a;
 }
-
-dialog::backdrop {
-    background-color: #00000050;
-}

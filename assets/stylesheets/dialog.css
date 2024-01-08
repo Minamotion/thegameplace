@@ -1,8 +1,4 @@
 /* Styles */
-dialog::backdrop {
-    background-color: #bf00ff50;
-}
-
 dialog {
     color: #ffffff;
     background-color: #000000;
