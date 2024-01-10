@@ -1,10 +1,9 @@
 # Don't make these files be changed by others:
-assets/data/gameslot_data.json
-assets/data/user_data.json
-assets/images/users/
-assets/data/games/
-assets/data/fonts/
-assets/scripts/x/x.js
-newpage.html
+root/assets/data/
+root/assets/images/users/
+root/assets/games/
+root/assets/fonts/
+root/assets/scripts/x/x.js
+root/newpage.html
 CNAME
 *.gitignore
