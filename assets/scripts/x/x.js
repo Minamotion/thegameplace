@@ -35,20 +35,6 @@ class xObj {
             }
         }
     }
-    setup(){
-        // Run all of the functions!
-        if (window.location.protocol !== 'https:') {
-            // I want users to have a secure connection so I made this script
-            localStorage.clear() // Clear info saved in the http protocol
-            sessionStorage.clear()
-            setTimeout(() => {
-                window.location.assign('https://thegameplace.minamotion.org'+window.location.pathname+window.location.search)
-                // After .01 seconds go to the safe location
-            }, 10);
-        } else {
-            this.run()
-        }
-    }
     setDefault(){
         localStorage.setItem('darkmode', 'false');
         localStorage.setItem('allowinvisible', 'false')
@@ -65,7 +51,7 @@ class xObj {
 if(localStorage.length < 1){
     new xObj().setDefault()
 }
-new xObj().setup()
+new xObj().run()
 if (pageLocationIs("/editpref.html")){
     // We are in settings
     window.addEventListener('load', function(){
