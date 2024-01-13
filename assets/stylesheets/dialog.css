@@ -1,0 +1,35 @@
+/* Styles */
+dialog {
+    color: #ffffff;
+    background-color: #000000;
+    border-color: #66cc9e;
+}
+
+.button {
+    color: white;
+    background: #aaaaaa;
+}
+
+input::placeholder {
+    color: #0000004a
+}
+
+.dialogTitle {
+    width: 650;
+    height: 100;
+    text-align: center;
+    background-color: #ffffff;
+    color: #000000;
+    padding: 10px;
+    border-style: solid;
+    border-color: #66cc9e;
+    border-radius: 20px;
+    border-width: 10px;
+}
+
+
+/* Animations */
+@keyframes disable {
+    from {background: #aaaaaa; color: white}
+    to {background: #eeeeee; color: black}
+}

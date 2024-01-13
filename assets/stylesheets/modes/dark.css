@@ -1,0 +1,13 @@
+/* Color palette for dark mode */
+.header {
+    background: #164731;
+}
+
+.footer {
+    background: #164731;
+}
+
+#body {
+    color: #ffffff;
+    background: #06130a;
+}

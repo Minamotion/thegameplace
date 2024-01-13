@@ -1,0 +1,43 @@
+/* Color palette */
+.header {
+    background: #00d5ff;
+}
+
+.footer {
+    background: #00d5ff;
+}
+
+#body {
+    color: black;
+    background: #d0fdff;
+}
+
+dialog {
+    color: #ffffff;
+    background-color: #000000;
+    border-color: #00d5ff;
+}
+
+.dialogTitle {
+    border-color: #00d5ff;
+}
+
+.gamescroller {
+    border-color: #ff0000;
+}
+
+.gameslot {
+    background-color: #d0fdff;
+    color: #ff0000;
+    border-color: #00eaff;
+}
+
+.gamescreen {
+    border-color: #00ffdd;
+}
+
+.invisible {
+    background-color: #000000;
+    border-color: #ff0000;
+    color: #ff0000;
+}

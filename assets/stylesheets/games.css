@@ -1,0 +1,40 @@
+/* Styles */
+.gamescroller {
+    background: #22523c;
+    overflow: auto;
+    height: 575;
+    width: 90%;
+    border-color: #317c5a;
+    border-style: solid;
+    border-width: 10;
+    border-radius: 30px;
+    margin: auto;
+    margin-bottom: 24px;
+    margin-top: 24px;
+}
+
+.gameslot {
+    background-color: white;
+    image-rendering: pixelated;
+    color: black;
+    border-style: solid;
+    border-width: 10;
+    border-color: lavender;
+    margin: 24;
+    width: 512;
+}
+
+.gamescreen {
+    background: black;
+    border-width: 7;
+    border-style: solid;
+    border-color: #00A0FF;
+    border-top-width: 32;
+    margin: 24;
+}
+
+.invisible {
+    background-color: lightcoral;
+    border-color: red;
+    color: darkred;
+}
